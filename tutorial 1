@@ -1,0 +1,94 @@
+//=====[Libraries]=============================================================
+
+#include "mbed.h"
+#include "arm_book_lib.h"
+#include <cstring>
+#include <iostream>
+// Blinking rate in milliseconds
+#define BLINKING_RATE1     200ms
+#define BLINKING_RATE2     1s
+
+int main()
+{
+    // Initialise the digital pin LED1 as an output
+     DigitalOut led(LED1);
+      DigitalOut led1(LED2);       
+      DigitalOut led2(LED3);
+    while (true) {
+        led = !led;
+        led1 = !led1;
+        led2 = !led2;
+        ThisThread::sleep_for(BLINKING_RATE);
+    } 
+
+}
+
+
+int main(){ //Initialise the digital pin LED1 as an output
+     DigitalOut led(LED1);
+
+      DigitalOut led1(LED2);       DigitalOut led2(LED3);
+
+        led = 1;
+         ThisThread::sleep_for(BLINKING_RATE);
+        led=0;
+       led1 = 1;
+         ThisThread::sleep_for(BLINKING_RATE);
+        led1=0;
+        led2 = 1;
+         ThisThread::sleep_for(BLINKING_RATE);
+  led2=0;
+}
+
+int main()
+{
+//Initialise the digital pin LED1 as an output
+     DigitalOut led(LED1);
+      DigitalOut led1(LED2);       DigitalOut led2(LED3);
+       led=1;led2=1;led1=1;
+       ThisThread::sleep_for(BLINKING_RATE);
+       led2=0;led=0;led1=0;
+
+}
+int main(){
+DigitalOut led(LED1);
+ DigitalOut led1(LED2);   
+  DigitalOut led2(LED3);
+    while(true)
+ {
+    led = 1;
+         ThisThread::sleep_for(BLINKING_RATE);
+        led=0;
+       led1 = 1;
+         ThisThread::sleep_for(BLINKING_RATE1);
+        led1=0;
+        led2 = 1;
+         ThisThread::sleep_for(BLINKING_RATE2);
+  led2=0;
+} 
+}
+
+int main(){
+DigitalOut led(LED1);
+DigitalOut led1(LED2);   
+DigitalOut led2(LED3);
+   
+int x;
+
+led=1;led1=1;led2=1;
+  //
+for (x=0; x<5; x++) {
+    //Turn LEDS ON
+    led = 1;
+    led1 = 1;
+    led2 = 1;
+     ThisThread::sleep_for(BLINKING_RATE1);
+    //Turn LEDS OFF
+    led = 0;
+    led1 = 0;
+    led2 = 0;
+     ThisThread::sleep_for(BLINKING_RATE1);
+} 
+//Keeps LED1 ON after the blinks 
+  led=1;led1=0;led2=0;
+}
